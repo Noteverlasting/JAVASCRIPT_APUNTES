@@ -28,35 +28,38 @@ console.log(suma + suma2);
 
 // 2) Mostrar por consola el promedio (suma dividida entre tantos numeros como hay)
 
-    console.log(suma / arrayNumeros1.length);
-    console.log(suma2 / arrayNumeros2.length);
+console.log(suma / arrayNumeros1.length);
+console.log(suma2 / arrayNumeros2.length);
 
 
 // 3) Encontrar los valores máximo y mínimo
-let menor = 0
-let mayor = 0
+let menor = arrayNumeros1[0];
+let mayor = arrayNumeros1[0];
 
-menor = arrayNumeros1[0]
+
 for (let i = 0 ; i < arrayNumeros1.length ; i++) {
     if (arrayNumeros1[i] < menor) {
         menor = arrayNumeros1[i]
-        console.log(menor);
-    }
-  
-    
-    
+    }     
+    if (arrayNumeros1[i] > mayor) {
+        mayor = arrayNumeros1[i];
+    }   
 }
+
+console.log(`El valor mínimo de arrayNumeros1 es ${menor}`);
+console.log(`El valor máximo arrayNumeros1 es ${mayor}`);
+
 
 // 4) Sumar los valores con índice par y restar los impares
 let sumando = 0
 for (let i = 0 ; i < arrayNumeros1.length; i++ ){
     if (i % 2 == 0) {
-    console.log (sumando += arrayNumeros1[0]);  
-} else {
-    console.log(sumando -= arrayNumeros1[0]);
+        sumando += arrayNumeros1[i]  
+    } else {
+        sumando -= arrayNumeros1[i]
+    }
 }
-}
-
+console.log(`El resultado de sumar los valores con indice par y restar los de indice impar es ${sumando}`);
 
 // Hay que mostrar por consola cada resultado
 
