@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>|||| while ||||</title>
+</head>
+<body>
+    
+
+
+    <script>
+        // let edad = prompt("Por favor, indícame tu edad")
+        // while(edad < 0 || edad >100){
+        //     edad = prompt(`${edad} no es una edad correcta :(\nDebes indicar una edad correcta\nPor favor, introduce de nuevo tu edad`)
+        // }
+        // alert(`Tu edad es de ${edad} años`)
+
+        // while (true) {
+        //     let edad = prompt("Por favor, indícame tu edad\nO escribe X para finalizar")
+
+        //     if (edad == "x" || edad == "X"){ //caso de introducir X para finalizar y no dar la edad
+        //         //tambien puede indicarse así (edad.toLowerCase() == "x")
+        //         alert("programa finalizado, hasta luego")
+        //         break //le decimos que finalice el bucle
+        //     } else if (edad < 0 || edad >100) { //casos de edad incorrecta
+        //         alert(`${edad} no es una edad correcta :(\nDebes indicar una edad correcta\nPor favor, introduce de nuevo tu edad`)
+        //     } else {
+        //         alert(`Tu edad es de ${edad} años`)
+        //         break //le decimos que finalice el bucle
+        //     }
+        // }
+//MODO SEMAFORO -->>
+        let control = true
+        while (control) {
+            let edad = prompt("Por favor, indícame tu edad\nO escribe X para finalizar")
+            edad = edad.trim()
+
+            console.log("edad vacia", edad.length);
+
+            if (edad.length == 0){ //caso de que el usuario no introduce datos
+                alert("Debes introducir un valor válido por favor")
+            } else if (edad == "x" || edad == "X"){ //caso de introducir X para finalizar y no dar la edad
+                //tambien puede indicarse así (edad.toLowerCase() == "x")
+                alert("programa finalizado, hasta luego")
+                control = false //le decimos que finalice el bucle
+            } else if (edad < 0 || edad >100) { //casos de edad incorrecta
+                alert(`${edad} no es una edad correcta :(\nDebes indicar una edad correcta\nPor favor, introduce de nuevo tu edad`)
+            } else {
+                alert(`Tu edad es de ${edad} años`)
+                control = false //le decimos que finalice el bucle
+            }
+        }
+    </script>
+</body>
+</html>

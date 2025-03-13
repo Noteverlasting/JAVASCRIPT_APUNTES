@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Utilizando Javascript</title>
+    <style>
+        /*Comentario CSS - Aqui la nomenclatura es de CSS*/
+    </style>
+</head>
+<body>
+
+    <h1>Soy el título de la página</h1>
+
+
+    <script>
+        // //Comentario Javascript - Aqui la nomenclatura es de Javascript
+        // let mensaje = "Hoy es viernes"
+        // console.log(mensaje)
+
+
+        // //instrucciones para el navegador
+        // //muestra ventana emergente con el mensaje que antes hemos definido como hoy es viernes
+        // alert(mensaje)
+        // /*Le ordenamos que respuesta sea igual a lo que el usuario escriba en la ventana emergente 
+        //  donde se le pregunta su nombre*/
+        // let respuesta = prompt("¿Cómo te llamas?")
+
+
+        // //Aqui ordenamos a saludo que muestre el mensaje Buenos días + un espacio + la respuesta del usuario
+        // let saludo = "Buenos días" + " " + respuesta
+        // alert(saludo)
+
+        /*Aqui le ordenamos que si el usuario pulsa aceptar en la ventana emergente, se le muestre un mensaje que 
+        puede responder con un si o no (boolean)*/ 
+        // respuesta = confirm("¿Está lloviendo?")
+        
+        // if (respuesta) {
+        //     alert ("Acuerdate de llevar un paraguas")
+        // } else {
+        //     alert ("No necesitas un paraguas")
+        // }
+
+        //Tipado dinámico, podemos cambiar las variables 
+            //   let miVariable = "Hola"
+            //    miVariable = 7
+       
+
+        //Creación de una calculadora básica con condiciones:
+
+        alert("Calculadora básica")
+
+        //Con parseFloat le indicamos a los campos de textos del prompt ( que son string) que se puedan comportar como numeros
+        let num1 = parseFloat(prompt("Dime el primer número"))
+        let num2 = parseFloat(prompt("Dime el segundo número"))
+        //Creamos la etiqueta operacion que devuelve la pregunta que hemos escrito y le da un campo de texto para responder al usuario
+        let operacion = prompt("¿Qué operación quieres realizar?: +, -, *, /")
+
+        //como indicar que solo se permitan los casos +,-,*,/ y si no, devuelva un mensaje de error
+        switch (operacion){
+            case "+":
+            case "-":
+            case "*":
+            case "/":
+
+        //Creamos la etiqueta respuesta, a la que ordenamos que sea de este modo y realice la operacion
+        let respuesta = `${num1} ${operacion} ${num2} = ` 
+        let mensaje = "" //Creamos la etiqueta mensaje
+        switch (operacion) {
+   
+            case "+":
+                //mensaje (sin valor) = respuesta (la operacion que hemos designado) + SUMA
+                mensaje = respuesta + `${num1 + num2}` // 2 + 3 = 5 <- COMO QUEREMOS QUE SE MUESTRE
+                // mensaje = respuesta + (num1 + num2) 
+                alert(mensaje) //Indicamos que haga una alerta mostrando el resultado, que es la etiqueta MENSAJE
+                // alert(`${num1} + ${num2} = ${num1 + num2}`) <-FORMA SIMPLIFICADA
+                break //se añade para separar los casos
+            case "-":
+                //mensaje (sin valor) = respuesta (la operacion que hemos designado) + RESTA
+                mensaje = respuesta + `${num1 - num2}` // 3 - 2 = 1 <- COMO QUEREMOS QUE SE MUESTRE
+                alert(mensaje)
+                // alert(`${num1} + ${num2} = ${num1 - num2}`) <-FORMA SIMPLIFICADA
+                break
+            case "*":
+                //mensaje (sin valor) = respuesta (la operacion que hemos designado) + RESTA
+                 mensaje = respuesta + `${num1 * num2}` // 3 * 2 = 6 <- COMO QUEREMOS QUE SE MUESTRE
+                alert(mensaje)
+                // alert(`${num1} + ${num2} = ${num1 - num2}`) <-FORMA SIMPLIFICADA
+                break            
+            case "/":
+                //En el caso de la división le vamos a indicar que si num2 es igual a 0, la alerta muestre "infinito" y si no, muestre la división
+                if (num2 == 0) { 
+                    mensaje = respuesta + "infinito"
+                } else {
+                //mensaje (sin valor) = respuesta (la operacion que hemos designado) + RESTA
+                mensaje = respuesta + `${num1 / num2}` // 6 / 2 = 3 <- COMO QUEREMOS QUE SE MUESTRE
+                }
+                
+                alert(mensaje)
+                // alert(`${num1} + ${num2} = ${num1 - num2}`) <-FORMA SIMPLIFICADA
+                break
+                }
+
+            break //se añade para separar los switches
+        default:
+        alert("Operación no aceptada")                
+    }
+        
+    </script>
+</body>
+</html>
