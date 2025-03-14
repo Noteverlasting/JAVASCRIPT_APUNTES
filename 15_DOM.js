@@ -97,3 +97,44 @@ h1.addEventListener("mouseout", () => {
     h1.style.backgroundColor = "white"
     h1.style.color = "tomato"
 })
+
+// Evento mouseenter y mouseleave en el div
+div.addEventListener("mouseenter", () => {
+    div.style.backgroundColor = "lightblue";
+    console.log("El mouse entró en el div.");
+});
+
+div.addEventListener("mouseleave", () => {
+    div.style.backgroundColor = "white";
+    console.log("El mouse salió del div.");
+});
+
+// Evento focus y blur en los párrafos (añade un marco cuando el usuario ha clicando en el p)
+parrafos.forEach((p) => {
+    p.setAttribute("tabindex", "0");
+    p.addEventListener("focus", () => {
+        p.style.outline = "2px solid blue";
+        console.log(`El párrafo con texto "${p.textContent}" tiene el foco.`);
+    });
+    p.addEventListener("blur", () => {
+        p.style.outline = "none";
+        console.log(`El párrafo con texto "${p.textContent}" perdió el foco.`);
+    });
+});
+
+// Evento contextmenu en el h2 (impide que se pueda hacer click derecho)
+h2.addEventListener("contextmenu", (event) => {
+    event.preventDefault();
+    alert("Menú contextual deshabilitado en el h2.");
+});
+
+// Evento scroll en la ventana
+window.addEventListener("scroll", () => {
+    console.log(`Scroll vertical: ${window.scrollY}px`);
+    
+});
+
+// Evento resize en la ventana
+window.addEventListener("resize", () => {
+    console.log(`Tamaño de la ventana: ${window.innerWidth} x ${window.innerHeight}`);
+});

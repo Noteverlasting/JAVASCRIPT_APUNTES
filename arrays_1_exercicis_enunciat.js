@@ -183,8 +183,37 @@ const compra = [
 // Debes obtener la cantidad de artículos comprados (no de cada tipo) y el importe total.
 // Por ejemplo: "Has comprado 4 artículos y el importe total es de 12.7 euros"
 
-for ( i = 0 ; i < compra.length ; i++){
+// Variables para almacenar la cantidad total de artículos y el importe total
+let cantidadArt = 0;
+let importeTotal = 0;
 
+// Recorremos el array compra con un bucle for
+for (let i = 0; i < compra.length; i++) {
+    cantidadArt += compra[i][2] 
+    // variamos cantidadArt para que sume los elementos del indice 2 (cantidad) del array que contiene el array compra  al valor (que era 0)
+    console.log(cantidadArt);
+    importeTotal += compra[i][1] * compra[i][2] 
+    // variamos importeTotal para que añada los valores del índice 1 (precio) * índice 2(cantidad) del array que contiene el array compra
+    console.log(importeTotal);
 }
+
+console.log(`Has comprado ${cantidadArt} artículos y el importe total es de ${importeTotal.toFixed(2)} euros.`);
+
+// Añadimos un nuevo artículo al array
+compra.push(["Mantequilla", 1.65, 1]);
+
+// Recalculamos los totales después de añadir el nuevo artículo
+cantidadArt = 0;
+importeTotal = 0;
+
+//volvemos a realizar el bucle for
+for (let i = 0; i < compra.length; i++) {
+    cantidadArt += compra[i][2];
+    importeTotal += compra[i][1] * compra[i][2];
+}
+
+// Mostramos el mensaje informativo actualizado
+console.log(`Has comprado ${cantidadArt} artículos y el importe total es de ${importeTotal.toFixed(2)} euros.`);
+
 
 // Después añade otro articulo al array anterior y muestra de nuevo el mensaje informativo con los nuevos datos.
