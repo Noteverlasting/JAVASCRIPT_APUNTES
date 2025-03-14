@@ -162,9 +162,9 @@ for (producto of carrito) {
 
 
 function calculasec (num) {
-//creamos la variable segundos, que va a dar como resultado el RESTO de pregSeg entre 60
+//creamos la variable segundos, que va a dar como resultado el RESTO de num entre 60
 let segundos = num % 60
-//creamos la variable minutosTotales, que va a ser el resultado de pregSeg( o num ) - segundos (resto de pregSeg entre 60) entre 60
+//creamos la variable minutosTotales, que va a ser el resultado de num - segundos (resto de num entre 60) entre 60
 let minutosTotales = (num - (segundos)) /60
 console.log(minutosTotales);
 //creamos la variable minutos, que es el resto de minutostotales entre 60 (los que tiene una hora, la siguiente unidad)
@@ -199,6 +199,7 @@ console.log(SEGUNDOS_RESTANTES);
 
 const HORAS = parseInt(SEGUNDOS_RESTANTES / SEGUNDOSHORA)
 console.log(HORAS);
+
 SEGUNDOS_RESTANTES = SEGUNDOS_RESTANTES % SEGUNDOSHORA
 console.log(SEGUNDOS_RESTANTES);
 

@@ -6,7 +6,7 @@
 
 
 //PRIMERO declaramos la funcion
-//p.resr nombre (parametros){
+//function nombre (parametros){
 // bloque de codigo a ejecutar
 //}
 function sumar (num1, num2) {
@@ -24,7 +24,7 @@ function sumar2 (num1, num2) {
     //en lugar de un clg, le indicamos return, para que nos devuelva la suma
     return (num1 + num2);
 }
-
+//Cuando la funcion encuentra un return, finaliza y envia (termina la funcion como un break, pero devuelve los parametros que indiquemos)
 let resultado = sumar2(5,5)
 console.log(resultado);
 
@@ -35,12 +35,12 @@ console.log(resultado);
 //Queremos que se nos muestre la edad que tenía esa persona en la fecha de referencia.
 
 
-const fechanac = "13-06-2000"
-const fecharef = "13-03-2025"
+const fechanwac = "13-06-2000"
+const fechawref = "13-03-2025"
 
 //PRIMERO - CREAMOS LA FUNCION y separamos los items en un array por las comillas con split('-')
 
-function calcularEdad (fecha1, fecha2) {    
+function calcularEdad (fechanac, fecharef) {    
 const datosnac = fechanac.split('-')
         console.log(datosnac);
 const datosref = fecharef.split('-')
@@ -83,20 +83,44 @@ if (mesref < mesnac) {
 
 console.log(edadactual);
 
-    return (edadactual)
+    return (`Tu edad es ${edadactual} años`)
 }
 
-let resedadactual = calcularEdad(fechanac, fecharef)
+let resedadactual = calcularEdad(fechanwac, fechawref)
 console.log(resedadactual);
 
 
+let edad1 = calcularEdad("15-15-1922", "12-01-2025")
+console.log(edad1);
 
-
-
-
+//==============================================================
+//SINTAXIS ALTERNATIVA 1
 
 let restar = function(num1, num2) {
-    console.log(num1-num2)
+    return(num1-num2)
 }
 
-restar(10, 5)
+let restauno = restar(10, 5)
+console.log(restauno);
+
+//==============================================================
+//SINTAXIS ALTERNATIVA 2 (sintaxis de flecha/arrow function)
+//declaramos la funcion indicando primero los paréntesis con sus parámetros y después usamos => (arrow) y ya seguimos con el bloque de codigo entre llaves
+
+let restar2 = (num1, num2) => {
+    return(num1-num2)
+}
+
+let restados = restar2(10, 5)
+console.log(restados);
+
+
+//==============================================================
+//SINTAXIS ALTERNATIVA 3 (sintaxis de flecha/arrow function)
+//Solo si es una linea de codigo
+
+let restar3 = (num1, num2) => num1 - num2
+
+let restatres = restar3(10, 5)
+console.log(restatres);
+

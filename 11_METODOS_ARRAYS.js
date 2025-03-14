@@ -29,7 +29,7 @@ console.log(arrayfrutasNew);
 let frutaolvidada = arrayfrutasNew.pop()
 console.log(frutaolvidada);
 
-//Añadir el primer elemento al principio del Array
+//Añadir el elemento al principio del Array
 arrayfrutasNew.unshift("Sandia");
 console.log(arrayfrutasNew);
 
