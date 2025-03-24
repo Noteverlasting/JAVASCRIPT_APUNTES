@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propagación de Eventos</title>
+    <style>
+        #abuelo {
+            height: 60%;
+            max-width: 400px;
+            margin: auto;
+            padding: 2rem;
+            border: 4px solid darkgreen;
+            text-align: center;
+        }
+
+        #padre {
+            height: 60%;
+            padding: 2rem;
+            border: 4px solid darkred;
+        }
+
+        #nieto {
+            height: 40%;
+            border: 4px solid darkblue;
+        }
+    </style>
+</head>
+<body>
+    <div id="abuelo">
+        <p>Soy el abuelo</p>
+        <div id="padre">
+            <p>Soy el padre</p>
+            <div id="nieto">
+                <p>Soy el nieto</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        //Creamos tres constantes, una para cada id
+
+        const abuelo = document.querySelector('#abuelo') //LE PONEMOS HASTAG PARA INDICAR QUE ES UN ID
+        const padre = document.getElementById('padre')  //NO LE AÑADIMOS HASTAG PORQUE ESTAMOS SELECCIONANDO POR ID
+        const nieto = document.querySelector('#nieto')
+    
+        nieto.addEventListener('click', (event) => {
+            event.stopPropagation()  //EVITA LA PROGRAMACIÓN A NIVELES SUPERIORES!!
+            console.log("Has hecho click en el nieto")
+            nieto.style.backgroundColor = 'lightblue'    
+        })
+        padre.addEventListener('click', (event) => {
+            console.log("Has hecho click en el padre")
+            padre.style.backgroundColor = 'pink'
+        })
+        abuelo.addEventListener('click', (event) => {
+            console.log("Has hecho click en el abuelo")
+            abuelo.style.backgroundColor = 'lightgreen'
+        
+        })
+        
+
+    </script>
+</body>
+</html>
