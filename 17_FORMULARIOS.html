@@ -34,12 +34,14 @@
               id="nombre"
               placeholder="Aqui se escribe"
               minlength="5"
-              pattern="[A-Za-z]{5,15}"
+              
               autofocus
               title="Escribe tu nombre (mín. 5 letras)"
               required
             />
+            <!-- pattern="[A-Za-z]{5,15}" -->
             <!-- El atributo required marca la obligación de cumplimentar ese input -->
+          <p></p>
           </div>
           <div>
             <label>Apellido: <input type="text" name="apellido" /></label>
@@ -169,6 +171,12 @@
                         <option value="CSS"></option>
                         <option value="Python"></option>
                     </datalist>
+                    <datalist id="lenguajes">
+                      <option value="HTML"></option>
+                      <option value="JavaScript"></option>
+                      <option value="CSS"></option>
+                      <option value="Python"></option>
+                  </datalist>
                 </label>
             </div>
         </fieldset>
@@ -218,18 +226,18 @@
       // })
 
       //  - - - !!!! Sistema 2 para obtener los valores del formulario (NAME)
-      const myform1 = document.forms['myform1']
-      myform1.addEventListener('submit', (e) => {
-          e.preventDefault()
-          const nombre = myform1['nombre'].value
-          const apellido = myform1['apellido'].value
-          const password = myform1['password'].value
-          const numero = myform1['numero'].value
-          const colores = myform1['colores'].value
-          console.log(nombre, apellido, password, numero, colores);
-      })
+      // const myform1 = document.forms['myform1']
+      // myform1.addEventListener('submit', (e) => {
+      //     e.preventDefault()
+      //     const nombre = myform1['nombre'].value
+      //     const apellido = myform1['apellido'].value
+      //     const password = myform1['password'].value
+      //     const numero = myform1['numero'].value
+      //     const colores = myform1['colores'].value
+      //     console.log(nombre, apellido, password, numero, colores);
+      // })
 
-      /*
+      
       //PARA FILTRAR CARACTERES EN UN FORMULARIO LIBRE
 
     const myform1 = document.forms['myform1']
@@ -237,8 +245,10 @@
           e.preventDefault()
           const nombre = myform1['nombre'].value.trim()
           if (nombre.length < 2) {
-          type="text"]+ p').textContent = 'El nombre debe tener 2 caracteres como minimo'
-          }
+            document.querySelector('input[type="text"] + p').textContent = 'El nombre debe tener 2 caracteres como minimo'
+            // La expresión document.querySelector('input[type="text"] + p') utiliza un selector CSS que selecciona 
+            //el elemento <p> que está inmediatamente después (+) de un <input> de tipo texto (input[type="text"]).         
+            }
           const apellido = myform1['apellido'].value
           const password = myform1['password'].value
           const numero = myform1['numero'].value
@@ -247,7 +257,7 @@
       })
       
       
-      */
+      
 
 
 

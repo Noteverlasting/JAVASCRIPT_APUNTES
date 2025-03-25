@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Crear tres selects que dependiendo del seleccionado, muestren uno de los otros selects de los niveles inferiores
+      -->
+    <fieldset>
+        <legend>continentes</legend>
+        <div>
+            <label>Selecciona un continente:
+                <select name="conti" id="conti" >
+                    <option value="europa">Europa</option>
+                    <option value="america">América</option>
+                    <option value="africa">África</option>
+                </select>
+            </label>
+        </div>
+    </fieldset>
+    <fieldset>
+        <legend>países</legend>
+        <div>
+            <label>Selecciona un país:
+                <select name="paisE" id="paisE" disabled>
+                    <option value="francia">Francia</option>
+                    <option value="alemania">Alemania</option>
+                    <option value="espania">España</option>
+                </select>
+                <select name="paisAm" id="paisAm" disabled>
+                    <option value="brasil">Brasil</option>
+                    <option value="estados">EUA</option>
+                    <option value="argentina">Argentina</option>
+                </select>
+                <select name="paisAf" id="paisAf" disabled>
+                    <option value="nigeria">Nigeria</option>
+                    <option value="kenya">Kenya</option>
+                    <option value="ghana">Ghana</option>
+                </select>
+            </label>
+        </div>
+    </fieldset>
+    <fieldset>
+        <legend>ciudades</legend>
+        <div>
+            <label>Selecciona una ciudad:
+                <select name="ciudadFR" id="ciudadFR" disabled>
+                    <option value="paris">Paris</option>
+                    <option value="lyon">Lyon</option>
+                    <option value="marsella">Marsella</option>
+                </select>
+                <select name="ciudadAL" id="ciudadAL" disabled>
+                    <option value="berlin">Berlin</option>
+                    <option value="munich">Munich</option>
+                    <option value="hamburgo">Hamburgo</option>
+                </select>
+                <select name="ciudadES" id="ciudadES" disabled>
+                    <option value="barcelona">Barcelona</option>
+                    <option value="valencia">Valencia</option>
+                    <option value="bilbao">Bilbao</option>
+                </select>
+                <select name="ciudadBR" id="ciudadBR" disabled>
+                    <option value="rio">Rio</option>
+                    <option value="saopaolo">Sao Paolo</option>
+                    <option value="brasilia">Brasilia</option>
+                </select>
+                <select name="ciudadEUA" id="ciudadEUA" disabled>
+                    <option value="ny">NY</option>
+                    <option value="sanfran">San Francisco</option>
+                    <option value="detroit">Detroit</option>
+                </select>
+                <select name="ciudadAR" id="ciudadAR" disabled>
+                    <option value="baires">Buenos Aires</option>
+                    <option value="laplata">La Plata</option>
+                    <option value="salta">Salta</option>
+                </select>
+                <select name="ciudadNI" id="ciudadNI" disabled>
+                    <option value="sokoto">Sokoto</option>
+                    <option value="abuya">Abuya</option>
+                    <option value="kano">Kano</option>
+                </select>
+                <select name="ciudadKE" id="ciudadKE" disabled>
+                    <option value="nairobi">Nairobi</option>
+                    <option value="mombasa">Mombasa</option>
+                    <option value="nakuru">Nakuru</option>
+                </select>
+                <select name="ciudadGA" id="ciudadGA" disabled>
+                    <option value="acra">Acra</option>
+                    <option value="kumasi">Kumasi</option>
+                    <option value="ho">Ho</option>
+                </select>
+            </label>
+        </div>
+    </fieldset>
+
+
+    <script>
+
+
+    const seleconti = document.getElementById('conti')
+    const paisE = document.getElementById('paisE')
+    const paisAm = document.getElementById('paisAm')
+    const paisAf = document.getElementById('paisAf')
+
+    seleconti.addEventListener('change', () => {
+        //indicamos que las condiciones disabled de cada uno sean true cada vez que se ejecute el codigo.
+    paisE.disabled = true;
+    paisAm.disabled = true;
+    paisAf.disabled = true;
+        //especificamos las variables dependiendo de cada selección 
+    if (seleconti.value === 'europa') {
+      paisE.disabled = false;
+    } else if (seleconti.value === 'america') {
+      paisAm.disabled = false;
+    } else if (seleconti.value === 'africa') {
+      paisAf.disabled = false;
+    }})
+
+    const ciudadES = document.getElementById('ciudadES')
+    const ciudadFR = document.getElementById('ciudadFR')
+    const ciudadAL = document.getElementById('ciudadAL')
+
+    paisE.addEventListener('change', () => {
+    ciudadES.disabled = true;
+    ciudadFR.disabled = true;
+    ciudadAL.disabled = true;
+    if (paisE.value === 'espania') {
+      ciudadES.disabled = false;
+    } else if (paisE.value === 'francia') {
+      ciudadFR.disabled = false;
+    } else if (paisE.value === 'alemania') {
+      ciudadAL.disabled = false;
+    }})
+
+    const ciudadBR = document.getElementById('ciudadBR')
+    const ciudadEUA = document.getElementById('ciudadEUA')
+    const ciudadAR = document.getElementById('ciudadAR')
+
+    paisAm.addEventListener('change', () => {
+    ciudadBR.disabled = true;
+    ciudadEUA.disabled = true;
+    ciudadAR.disabled = true;
+    if (paisAm.value === 'brasil') {
+      ciudadBR.disabled = false;
+    } else if (paisAm.value === 'estados') {
+      ciudadEUA.disabled = false;
+    } else if (paisAm.value === 'argentina') {
+      ciudadAR.disabled = false;
+    }})
+
+    const ciudadNI = document.getElementById('ciudadNI')
+    const ciudadKE = document.getElementById('ciudadKE')
+    const ciudadGA = document.getElementById('ciudadGA')
+
+    paisAf.addEventListener('change', () => {
+    ciudadNI.disabled = true;
+    ciudadKE.disabled = true;
+    ciudadGA.disabled = true;
+    if (paisAf.value === 'nigeria') {
+      ciudadNI.disabled = false;
+    } else if (paisAf.value === 'kenya') {
+      ciudadKE.disabled = false;
+    } else if (paisAf.value === 'ghana') {
+      ciudadGA.disabled = false;
+    }})
+
+
+    
+    </script>
+</body>
+</html>

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario reserva</title>
+    <script src="js/reservas.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        :focus {
+          background-color: rgba(173, 72, 236, 0.36);
+        }
+
+        main {
+            width: 500px;
+            margin: 0 auto;
+        }
+
+        h1{
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        div {
+          margin: 0.5rem .5rem;
+          padding: .5rem 0;
+        }
+  
+        input {
+          accent-color: rgb(173, 72, 236);
+          border-radius: 5px;
+          padding: .5rem ;
+          width: 100%;
+        }
+
+        fieldset {
+            padding: 1.5rem ;
+            margin: 1rem 0;
+        }
+
+        button{
+            color: wheat;
+            padding: 1rem 1.5rem;
+            border-radius: 5px;
+        }
+
+        .botones{
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .datoper input{
+            margin-top: .5rem;
+        }
+
+        .reserva {
+            display: flex;
+
+            div {
+                width: 100%;
+            }
+
+        }
+
+        .tipoestancia div {
+            margin: 0;
+            padding: .25rem;
+        }
+
+        .tipoestancia input {
+             width: auto;
+     
+        }
+
+        #reservar {
+            background-color: rgb(53, 144, 53);
+        }
+
+        #cancelar {
+            background-color: rgb(161, 60, 60);
+        }
+
+        /* AQUI SELECCIONAMOS EL LABEL QUE VA DESPUES DE LOS INPUT TYPE RADIO CUANDO ESTÁN "checked" */
+        input[type="radio"]:checked + label {
+            color: rgb(173, 72, 236) ;
+        }
+
+      </style>
+      
+</head>
+<body>
+    <header>
+        <h1>Reserva de habitación de hotel</h1>
+      </header>
+      <main>
+        <form id="form1" name="form1">
+
+          <fieldset class="datoper">
+            <legend>Datos personales</legend>
+            <div>
+              <label for="nombre">* Nombre:</label>
+              <input
+                type="text"
+                name="nombre"
+                id="nombre"
+                minlength="2"
+                pattern="[A-Za-z]{2,}"
+                autofocus
+                title="Escribe tu nombre (mín. 2 letras)"
+
+              />
+              <p id="errorNombre"></p>
+            </div>
+            <div>
+              <label for="apellido">* Apellido/s: </label>
+                <input 
+                type="text" 
+                name="apellido" 
+                id="apellido"
+                minlength="2"
+                pattern="[A-Za-z]{2,}"
+                title="Escribe tu apellido (mín. 2 letras)"
+
+                />
+                <p id="errorApellido"></p>
+            </div>
+          </fieldset>
+
+
+          <fieldset class="reserva">
+            <legend>Datos de la reserva</legend>
+            <div>
+                <label for="adultos">Adultos:</label>
+                  <input type="number" name="adultos" id="adultos" min="1" max="5" value="1"
+                />
+              </div>
+            <div>
+                <label for="ninios">Niños:</label>
+                  <input type="number" name="ninios" id="ninios" min="0" max="5" value="0"
+                />
+              </div>
+            <div>
+                <label for="entrada">Entrada:</label>
+                <input type="date" name="entrada" id="entrada" />
+            </div>
+            <div>
+                <label for="salida">Salida:</label>
+                <input type="date" name="salida" id="salida" />
+            </div>
+          </fieldset>
+
+
+          <fieldset class="tipoestancia">
+            <legend>Tipo de estancia</legend>
+            <div>
+              
+                <input
+                  type="radio"
+                  name="estancia"
+                  value="alojamiento"
+                  id="alojamiento"
+                  checked
+                /><label for="alojamiento" id="alojamiento"> Sólo alojamiento
+                </label>
+            </div>
+            <div>
+              
+                <input 
+                type="radio" 
+                name="estancia" 
+                value="desayuno" 
+                id="desayuno"
+                /><label for="desayuno" id="desayuno"> Desayuno incluido
+                </label>
+            </div>
+            <div>
+              
+                <input 
+                type="radio" 
+                name="estancia" 
+                value="media" 
+                id="media" 
+                /><label for="media" id="media"> Media pensión
+                </label>
+            </div>
+            <div>
+                
+                  <input 
+                  type="radio" 
+                  name="estancia" 
+                  value="completa" 
+                  id="completa"
+                  /> <label for="completa" id="completa">Pensión completa
+                  </label>
+              </div>
+          </fieldset>
+            <div class="botones">
+                <button type="submit" id="reservar">Reservar</button>
+                <button type="reset" id="cancelar">Cancelar</button>
+            </div>
+        </form>
+      </main>
+</body>
+</html>
