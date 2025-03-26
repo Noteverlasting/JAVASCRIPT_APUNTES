@@ -1,3 +1,6 @@
+//Variable para comprobar que todos los datos estén correctos
+let todoOK = true
+
 const nombreHTML = document.getElementById('nombre')
 const apellidoHTML = document.getElementById('apellido')
 
@@ -6,6 +9,8 @@ nombreHTML.addEventListener('change', () => {
     document.getElementById('errorNombre').textContent = ""
     if (nombre.length < 2) {
         document.getElementById('errorNombre').textContent = "Introduce un nombre válido"
+        //si hay errores en el nombre, todoOK pasa a ser false
+        todoOK = false
         
 }
 })
@@ -21,7 +26,8 @@ apellidoHTML.addEventListener('change', () => {
     document.getElementById('errorApellido').textContent = ""
     if (apellido.length < 2) {
         document.getElementById('errorApellido').textContent = "Introduce un apellido válido"
-        
+        //si hay errores en el nombre, todoOK pasa a ser false
+        todoOK = false
 }
 })
 
@@ -70,17 +76,10 @@ form1.addEventListener('submit', (evento) => {
     //Le indicamos que no se recargue la página al hacer submit, que es su actuacion predefinida
     evento.preventDefault()
     //Ya podemos pedirle los valores que necesitemos y llamar al dialog de html para mostrarlos
-    const nombre = form1['nombre'].value.trim()
-    const apellido = form1['apellido'].value.trim()
 
-    if (nombre.length < 2) {
-    document.getElementById('errorNombre').textContent = "Introduce un nombre válido"
-
-    } else if (apellido.length < 2) {
-    document.getElementById('errorApellido').textContent = "Introduce un apellido válido"
-
-    } else {
-
+    //si todoOK es false (!) no se ejecuta el resto de código
+    if (!todoOK) return   
+    //si todo está bien, se ejecutan estas líneas de código que mostrarán la ventana emergente con los textos aqui descritos
     let resumenReservaDialog = `<p>Reserva realizada a nombre de <span>${form1['nombre'].value} ${form1['apellido'].value}</span></p>`
     resumenReservaDialog += `<p>Adultos : <span>${form1['adultos'].value}</span> - Niños : <span>${form1['ninios'].value} </span></p>`
     resumenReservaDialog += `<p>Fecha de entrada : <span>${form1['entrada'].value} </span></p> `
@@ -89,7 +88,7 @@ form1.addEventListener('submit', (evento) => {
 
     document.getElementById('resumenReserva').innerHTML = resumenReservaDialog
 
-    ventanaReserva.showModal()}
+    ventanaReserva.showModal()
 
 })
 
