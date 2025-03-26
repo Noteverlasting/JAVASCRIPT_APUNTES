@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario reserva</title>
-    <script src="js/reservas.js"></script>
+    <script defer src="js/reservas.js"></script>
     <style>
         * {
             margin: 0;
@@ -48,11 +48,16 @@
             color: wheat;
             padding: 1rem 1.5rem;
             border-radius: 5px;
+
+            &:hover {
+              cursor:pointer;
+            }
         }
 
         .botones{
             display: flex;
             justify-content: space-between;
+            
         }
 
         .datoper input{
@@ -91,6 +96,58 @@
             color: rgb(173, 72, 236) ;
         }
 
+        #ventanaReserva {
+          width: 80%;
+          margin: auto;
+          background-color: rgb(252, 252, 190);
+          border: 1px solid ;
+          border-radius: 10px;
+          padding: 2rem;
+
+          h2 {
+            border-bottom: 2px solid ;
+            padding-bottom: 1rem;
+            margin-bottom: 3rem;
+            text-align: center;
+          }
+
+          p {
+            font-size: 1.2rem;
+            margin: 1rem ;
+            color: gray;
+          }
+
+          form {
+            margin-top: 3rem;
+            border-top: 2px solid;
+
+            div {
+              display: flex;
+              justify-content: end;
+            }
+          }
+
+          span {
+            color: black;
+            font-weight: bold;
+
+          }
+
+          button {
+            color: rgb(117, 41, 188);
+            border-color: rgb(145, 73, 213);
+
+            &:hover {
+              background-color: rgb(219, 134, 205);
+              color: white;
+            }
+
+          }
+
+
+        }
+
+
       </style>
       
 </head>
@@ -110,7 +167,7 @@
                 name="nombre"
                 id="nombre"
                 minlength="2"
-                pattern="[A-Za-z]{2,}"
+                pattern="[A-Za-z\sàáèáìíòóùúÀÁÈÉÌÍÒÓÙÚçÇñÑ-]{2,}"
                 autofocus
                 title="Escribe tu nombre (mín. 2 letras)"
 
@@ -124,7 +181,7 @@
                 name="apellido" 
                 id="apellido"
                 minlength="2"
-                pattern="[A-Za-z]{2,}"
+                pattern="[A-Za-z\sàáèáìíòóùúÀÁÈÉÌÍÒÓÙÚçÇñÑ-]{2,}"
                 title="Escribe tu apellido (mín. 2 letras)"
 
                 />
@@ -205,6 +262,28 @@
                 <button type="reset" id="cancelar">Cancelar</button>
             </div>
         </form>
+        <dialog id="ventanaReserva" closedby="any">
+            <h2>Resumen de la reserva</h2>
+            <div id="resumenReserva"></div>
+            <form method="dialog">
+              <div>
+                <button id="cerrarDialog">
+                  Aceptar
+                </button>
+              </div>
+            </form>
+        </dialog>
+        <dialog id="ventanaError" closedby="any">
+          <h2>Resumen de la reserva</h2>
+          <div id="resumenError"></div>
+          <form method="dialog">
+            <div>
+              <button id="cerrarDialog">
+                Aceptar
+              </button>
+            </div>
+          </form>
+      </dialog>
       </main>
 </body>
 </html>
